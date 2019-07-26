@@ -21,9 +21,9 @@ void Button::draw(Graphics &GUI, int x, int y, size_t z)
     GUI.write(value);
 }
 
-void Button::mousePressed(int x, int y, bool isLeft)
+void Button::mousePressed(int posX, int posY, bool isLeft)
 {
-    if (y == top && (x > left && x < (left + static_cast<int>(value.size()) - 1)))
+    if (isInsideBoundaries(posX,posY))
     {
         if (!isClicked)
         {
@@ -41,6 +41,17 @@ void Button::mousePressed(int x, int y, bool isLeft)
     {
         events[i]->buttonEvent();
     }
+}
+
+bool Button::isInsideBoundaries(int posX, int posY)
+{
+	if(posX >= left && 
+	posX <= left + getWidth() && 
+	posY >= getTop() && 
+	posY<= getTop() + top){
+		return true;
+	}
+	return false;
 }
 
 void Button::setEvent(Control *c)
