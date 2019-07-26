@@ -1,8 +1,9 @@
 #pragma once
+
 #include "Graphics.h"
-#include "LineBorder.h"
-#include "DoubleBorder.h"
+#include "NormalBorder.h"
 #include "DblBorder.h"
+#include "DotBorder.h"
 #include <vector>
 
 using namespace std;
@@ -52,7 +53,7 @@ public:
 	virtual void setFgColor(Color _fgColor) { fgColor = _fgColor;};
 	virtual void setBorder(Border* _border) { border = _border; };
 	
-	virtual void draw(Graphics& g, int x, int y, size_t z) {};
+	virtual void draw(Graphics& GUI, int x, int y, size_t z) {};
 	virtual void mousePressed(int x, int y, bool isLeft) {};
 	virtual void keyDown(int keyCode, char charecter , Graphics & g) {};
 	virtual short getLeft() { return this->left; };

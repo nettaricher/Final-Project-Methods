@@ -1,5 +1,5 @@
 #pragma once
-#include "../Common/Label.h"
+#include "./Label.h"
 
 class Button : public Control
 {
@@ -11,7 +11,7 @@ private:
 
 public:
     Button(Border *border, short left, short top, string value);
-    void draw(Graphics &g, int x, int y, size_t z);
+    void draw(Graphics &GUI, int x, int y, size_t z);
     void mousePressed(int x, int y, bool isLeft);
     bool canGetFocus() { return FALSE; };
     int getWidth();

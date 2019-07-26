@@ -1,13 +1,11 @@
 #include "../Common/Graphics.h"
-#include "../Controls/Label.h"
 #include "../Common/EventEngine.h"
+#include "../Common/Button.h"
+#include <iostream>
 
 int main(int argc, char** argv)
 {
-
-	Label l("Hello World");
-	Control& l2 = l;
 	EventEngine e;
-	e.run(l);
-
+	Button b(new NormalBorder(), 2, 23, "button");
+	e.run(b);
 }

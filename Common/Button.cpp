@@ -11,14 +11,14 @@ int Button::getWidth()
     return width;
 };
 
-void Button::draw(Graphics &g, int x, int y, size_t z)
+void Button::draw(Graphics &GUI, int x, int y, size_t z)
 {
-    g.setBackground(bgColor);
-    g.setForeground(fgColor);
-    border->drawBorder(g, x, y, static_cast<int>(value.size()) + 2, 4);
-    g.setCursorVisibility(FALSE);
-    g.moveTo(x + 1, y + 1);
-    g.write(value);
+    GUI.setBackground(bgColor);
+    GUI.setForeground(fgColor);
+    border->draw(GUI, x, y, static_cast<int>(value.size()) + 2, 4);
+    GUI.setCursorVisibility(FALSE);
+    GUI.moveTo(x + 1, y + 1);
+    GUI.write(value);
 }
 
 void Button::mousePressed(int x, int y, bool isLeft)

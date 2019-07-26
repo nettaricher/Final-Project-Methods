@@ -1,3 +1,5 @@
+#pragma once
+
 #include "../Common/Control.h"
 #include <string>
 

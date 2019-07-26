@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Border.h"
 
 class DblBorder :public Border
