@@ -1,18 +1,13 @@
 #pragma once
+#include "Control.h"
 
-#include "../Common/Control.h"
-#include <string>
+class Label : public Control
+{
+private:
+	string value;
 
-
-using namespace std;
-
-class Label: public Control
-{   
-    private:
-        string value;
-    public:
-        Label(string);
-        string getValue();
-        void setValue(string);
-        void draw(Graphics& g, int x, int y, size_t z);
+public:
+	Label(short left ,short top , string value);
+	void draw(Graphics& GUI, int x, int y, size_t z);
+	~Label();
 };
