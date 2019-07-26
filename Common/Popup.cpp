@@ -26,10 +26,11 @@ PopUp::PopUp(short left, short top, string text) :
 void PopUp::mousePressed(int posX, int posY, bool isLeft)
 {
 
-	if((posX >= left) && 
-	(posX <= (left + POPUP_WIDTH)) &&
-	(posY >= top) && 
-	(posY<= (top + POPUP_HEIGHT))){
+	if((posX >= left) 
+  && (posX <= (left + POPUP_WIDTH)) 
+  && (posY >= top) 
+  && (posY<= (top + POPUP_HEIGHT)) 
+  && isVisible){
 				panel.mousePressed(posX, posY, isLeft);
 	}
 }
