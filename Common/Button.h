@@ -14,6 +14,7 @@ public:
     void draw(Graphics &GUI, int x, int y, size_t z);
     void mousePressed(int x, int y, bool isLeft);
     bool canGetFocus() { return FALSE; };
+    bool isInsideBoundaries(int posX, int posY);
     int getWidth();
     void setEvent(Control *c);
     ~Button();
