@@ -77,7 +77,6 @@ void RadioBox::draw(Graphics &GUI, int posX, int posY, size_t z)
 	GUI.write(title);
 }
 
-//Destructor
 RadioBox::~RadioBox()
 {
 }

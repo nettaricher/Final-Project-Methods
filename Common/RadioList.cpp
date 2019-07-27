@@ -64,7 +64,7 @@ void RadioList::draw(Graphics &GUI, int posX, int posY, size_t z)
 {
 	GUI.setBackground(bgColor);
 	GUI.setForeground(fgColor);
-	border->drawBorder(GUI, posX, posY, 25, radioBoxList.size() * 4);
+	border->draw(GUI, posX, posY, 25, radioBoxList.size() * 4);
 	for (auto rb : radioBoxList)
 	{
 		rb->draw(GUI, rb->getLeft(), rb->getTop(), z);

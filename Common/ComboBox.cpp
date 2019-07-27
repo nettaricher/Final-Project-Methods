@@ -19,7 +19,7 @@ void ComboBox::mousePressed(int posX, int posY, bool isLeft)
 	}
 }
 
-void ComboBox::keyDown(int keyCode, char charecter, Graphics &g)
+void ComboBox::keyDown(int keyCode, char charecter, Graphics& GUI)
 {
 	int listSize = listOptions.size();
 	switch (keyCode)
