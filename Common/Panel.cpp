@@ -2,48 +2,38 @@
 
 
 
-Panel::Panel(Border * _border, short _left, short _top) :Control(_left, _top, _border) 
-{
-	
-}
-
-
+Panel::Panel(Border * _border, short _left, short _top) :Control(_left, _top, _border) {}
 
 void Panel::draw(Graphics & GUI, int x, int y, size_t z)
 {
 	GUI.setBackground(bgColor);
 	GUI.setForeground(fgColor);
 	border->draw(GUI, x, y, width , height);
-	for (auto c : controls) {
-		c->draw(GUI,  c->getLeft(), c->getTop(), z);
+	for (auto control : controls) {
+		control->draw(GUI,  control->getLeft(), control->getTop(), z);
 	}
 }
 
-void Panel::mousePressed(int x, int y, bool isLeft)
+void Panel::mousePressed(int posX, int posY, bool isLeft)
 {
 	for (auto c : controls)
 	{
-		int topY    = c->getTop();
-		int leftX   = c->getLeft();
-		int widthC  = c->getWidth();
+		int top    = c->getTop();
+		int left   = c->getLeft();
+		int width  = c->getWidth();
 		bool getFocus = c->canGetFocus();
-		if (getFocus)
-		{
-			if (y == topY && (x > leftX && x < (leftX + widthC - 1)))
+
+			if (posX >= left &&
+			 posX<= (left + width) &&
+			 posY >= top &&
+			 posY <= top + 1)
 			{
-				Control::setFocus(*c);
-				c->mousePressed(x, y, isLeft);
-				break;
+				if(getFocus)
+				{
+					Control::setFocus(*c);
+				}
 			}
-		}
-		else
-		{
-			if (y == topY && (x > left && x < (leftX + widthC - 1)))
-			{
-				c->mousePressed(x, y, isLeft);
-				break;
-			}
-		}
+				c->mousePressed(posX, posY, isLeft);
 	}
 }
 
