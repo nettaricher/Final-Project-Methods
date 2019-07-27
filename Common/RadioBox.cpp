@@ -7,8 +7,15 @@ RadioBox::RadioBox(short left, short top, string title) : Control(left, top), ti
 {
 }
 
-void RadioBox::mousePressed(int posX, int posY, bool isLeft)
+bool RadioBox::mouseClicked(int posX, int posY, bool isLeft)
 {
+
+	if ((posY >= top) && (posY <= top + 1) && (posX >= left) && (posX <= (left + 1)))
+	{
+		isRadioBoxSelected = TRUE;
+		return true;
+	}
+	return false;
 }
 
 bool RadioBox::getIsRadioBoxSelected()
@@ -16,7 +23,12 @@ bool RadioBox::getIsRadioBoxSelected()
 	return isRadioBoxSelected;
 }
 
-void RadioBox::setIsRadioBoxSelected()
+void RadioBox::setIsRadioBoxSelected(bool isSelected)
+{
+	isRadioBoxSelected = isSelected;
+}
+
+void RadioBox::toggleSelected()
 {
 	isRadioBoxSelected = isRadioBoxSelected == FALSE ? TRUE : FALSE;
 }
