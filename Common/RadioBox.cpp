@@ -12,7 +12,6 @@ bool RadioBox::mouseClicked(int posX, int posY, bool isLeft)
 
 	if ((posY >= top) && (posY <= top + 1) && (posX >= left) && (posX <= (left + 1)))
 	{
-		isRadioBoxSelected = TRUE;
 		return true;
 	}
 	return false;

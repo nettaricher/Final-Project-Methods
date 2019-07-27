@@ -19,8 +19,17 @@ void RadioList::mousePressed(int posX, int posY, bool isLeft)
 			for (auto radioBox : radioBoxList)
 			{
 				if (radioBoxList[currentindex] != radioBox)
+				{
+					radioBox->flipBgToBlack();
 					radioBox->setIsRadioBoxSelected(false);
+				}
+				else
+				{
+					// radioBox->flipBgToWhite();
+					radioBox->setIsRadioBoxSelected(true);
+				}
 			}
+			lastSelected = currentindex;
 			break;
 		}
 		currentindex++;
