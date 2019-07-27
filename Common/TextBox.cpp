@@ -104,16 +104,27 @@ void TextBox::keyDown(int keyCode, char charecter, Graphics &GUI)
     }
 }
 
-void TextBox::mousePressed(int x, int y, bool isLeft)
+void TextBox::mousePressed(int posX, int posY, bool isLeft)
 {
     int stringSize = static_cast<int>(value.size());
-    if (y == top && (x > left && x < (left + width - 1)))
+    if (isInsideBoundaries(posX, posY))
     {
-        if (x > stringSize)
+        if (posX > stringSize)
             cursor = stringSize;
         else
-            cursor = (x - (left + 1));
+            cursor = (posX - (left + 1));
     }
+}
+
+bool TextBox::isInsideBoundaries(int posX, int posY)
+{
+	if(posX >= left && 
+	posX <= left + getWidth() && 
+	posY >= getTop() && 
+	posY<= getTop() + height){
+		return true;
+	}
+	return false;
 }
 
 TextBox::~TextBox() {}
