@@ -19,31 +19,31 @@ void NumericBox::draw(Graphics &GUI, int x, int y, size_t z)
 
     GUI.moveTo(leftBorder, topBorder);
 
-    cout << '\xDA';
+    cout << (char)201;
     for (int i = 0; i < 17; i++)
     {
-        cout << '\xC4';
+        cout << (char)205;
     }
-    cout << '\xBF';
+    cout << (char)187;
 
     GUI.moveTo(leftBorder, topBorder + 1);
-    cout << '\xB3' << ' ' << "+" << ' ' << '\xB3';
+    cout << (char)186 << ' ' << "+" << ' ' << (char)221;
 
     for (int i = 0; i < 9; i++)
     {
         cout << ' ';
     }
-    cout << '\xB3' << ' ' << "-" << ' ' << '\xB3';
+    cout << (char)221 << ' ' << "-" << ' ' << (char)186;
 
     GUI.moveTo(leftBorder, topBorder + 2);
-    cout << '\xC0';
+    cout << (char)200;
 
     for (int i = 0; i < 17; i++)
     {
-        cout << '\xC4';
+        cout << (char)205;
     }
-    cout << '\xD9';
-    GUI.write(x + 6, y + 1, to_string(value));
+    cout << (char)188;
+    GUI.write(x + 8, y + 1, to_string(value));
 
     if (focus)
     {
