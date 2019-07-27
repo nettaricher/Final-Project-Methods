@@ -17,6 +17,7 @@ public:
     void mousePressed(int x, int y, bool isLeft);
     void keyDown(int keyCode, char charecter, Graphics &GUI);
     void onFocus(bool flag);
+    bool isInsideBoundaries(int posX, int posY);
     bool canGetFocus() { return TRUE; };
     int getWidth() { return width; };
 };
