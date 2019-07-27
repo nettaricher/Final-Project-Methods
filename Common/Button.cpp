@@ -59,7 +59,7 @@ Button::~Button() {}
 bool Button::isInsideBoundaries(int posX, int posY)
 {
 	if(posX >= left && 
-	posX <= left + getWidth() && 
+	posX <= left + 8 && 
 	posY >= getTop() && 
 	posY<= getTop() + 1){
 		return true;
