@@ -5,29 +5,39 @@
 #include "../Common/TextBox.h"
 #include "../Common/CheckList.h"
 #include "../Common/NumericBox.h"
+#include "../Common/MassageBox.h"
+
 #include <iostream>
 
 int main(int argc, char **argv)
 {
-	EventEngine e;
-	Panel p(new NormalBorder(), 1, 1);
-	p.setWidth(100);
-	p.setHeight(30);
+	EventEngine engine;
+	Panel panel(new NormalBorder(), 1, 1);
+	panel.setWidth(100);
+	panel.setHeight(30);
 
-	NumericBox nb1(new DotBorder(), 2, 17);
+	Label label(30,15,"Todo List");
+	Button btn1(new DblBorder(), 2, 23, "OPEN POPUP");
+	Button btn2(new DblBorder(), 40, 18, "CLICK ME!");
 	TextBox textBox1(new NormalBorder(), 2, 20, 20, 4);
-	Button b1(new DblBorder(), 2, 23, "Click me");
-	CheckList cl(new NormalBorder(), 2, 2, {"check Box 1", "check Box 2", "check Box 3", "check Box 4"});
+	NumericBox numbox(new DotBorder(), 2, 17);
+	CheckList checklist(new NormalBorder(), 2, 2, {"Workout", "Hangout", "Do Homework"});
+	PopUp popup(35, 10, "Pop up!");
 
-	p.add(&nb1);
-	p.add(&cl);
-	p.add(&textBox1);
-	p.add(&b1);
+	panel.add(&label);
+	panel.add(&btn1);
+	panel.add(&btn2);
+	panel.add(&textBox1);
+	panel.add(&numbox);
+	panel.add(&checklist);
+	panel.add(&popup);
+	btn1.setEvent(&popup);
+
 
 	Control *firstFocus;
-	if (firstFocus = p.getFirstControl())
+	if (firstFocus = panel.getFirstControl())
 	{
 		Control::setFocus(*firstFocus);
 	}
-	e.run(p);
+	engine.run(panel);
 }
