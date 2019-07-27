@@ -6,7 +6,9 @@
 #include "../Common/CheckList.h"
 #include "../Common/NumericBox.h"
 #include "../Common/MassageBox.h"
-
+#include "../Common/RadioList.h"
+#include "../Common/RadioBox.h"
+#include "../Common/ComboBox.h"
 #include <iostream>
 
 int main(int argc, char **argv)
@@ -16,23 +18,39 @@ int main(int argc, char **argv)
 	panel.setWidth(100);
 	panel.setHeight(30);
 
-	Label label(30,15,"Todo List");
-	Button btn1(new DblBorder(), 2, 23, "OPEN POPUP");
-	Button btn2(new DblBorder(), 40, 18, "CLICK ME!");
-	TextBox textBox1(new NormalBorder(), 2, 20, 20, 4);
-	NumericBox numbox(new DotBorder(), 2, 17);
-	CheckList checklist(new NormalBorder(), 2, 2, {"Workout", "Hangout", "Do Homework"});
-	PopUp popup(35, 10, "Pop up!");
+	Label headerLabel(42, 1, "Pizza Order");
+	Label toppingsLabel(5, 3, "Toppings");
+	CheckList toppingChecklist(new DblBorder(), 3, 4, {"Olives", "Paparoni", "Extra cheese"});
+	Label paymentLabel(5, 15, "Payment");
+	RadioList paymentRadioList(new DblBorder(), 3, 16, {"Credit Card", "Cash", "Coupon"});
+	Label nameLabel(35, 3, "Name");
+	TextBox nameTextBox(new NormalBorder(), 35, 5, 20, 4);
+	Label phoneLabel(35, 8, "Phone number");
+	TextBox phoneTextBox(new NormalBorder(), 35, 10, 20, 4);
+	Label numOfPizzaLabel(35, 14, "Number of pizzas");
+	NumericBox numbox(new NormalBorder(), 35, 16);
+	Label drinksLabel(35, 19, "Choose drink");
+	ComboBox combo(new NormalBorder(), 35, 21, {"CocaCola", "Sprite", "Fanta"});
 
-	panel.add(&label);
-	panel.add(&btn1);
-	panel.add(&btn2);
-	panel.add(&textBox1);
+	Button orderBtn(new DblBorder(), 70, 10, "ORDER NOW!");
+	PopUp popup(62, 15, "Confirm order");
+
+	orderBtn.setEvent(&popup);
+	panel.add(&toppingChecklist);
+	panel.add(&paymentRadioList);
+	panel.add(&nameTextBox);
+	panel.add(&phoneTextBox);
 	panel.add(&numbox);
-	panel.add(&checklist);
+	panel.add(&combo);
+	panel.add(&orderBtn);
+	panel.add(&headerLabel);
+	panel.add(&toppingsLabel);
+	panel.add(&paymentLabel);
+	panel.add(&nameLabel);
+	panel.add(&phoneLabel);
+	panel.add(&numOfPizzaLabel);
+	panel.add(&drinksLabel);
 	panel.add(&popup);
-	btn1.setEvent(&popup);
-
 
 	Control *firstFocus;
 	if (firstFocus = panel.getFirstControl())
