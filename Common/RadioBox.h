@@ -9,11 +9,12 @@ private:
 public:
 	RadioBox(short left, short top, string title);
 	void draw(Graphics &GUI, int posX, int posY, size_t z);
-	void mousePressed(int posX, int posY, bool isLeft);
-	void keyDown(int keyCode, char charecter){};
+	bool mouseClicked(int posX, int posY, bool isLeft);
+	void keyDown(int keyCode, char charecter);
 	void toWhite();
 	void toBlack();
-	void setIsRadioBoxSelected();
+	void toggleSelected();
+	void setIsRadioBoxSelected(bool isSelected);
 	bool getIsRadioBoxSelected();
 	bool canGetFocus() { return TRUE; };
 	bool isListObj() { return TRUE; };
