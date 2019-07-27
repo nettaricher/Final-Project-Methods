@@ -3,43 +3,52 @@
 
 using namespace std;
 
-CheckBox::CheckBox(short _left, short _top, string _value) :Control(_left, _top), value(_value) , isSelected(FALSE) {}
+//Constructor
+CheckBox::CheckBox(short _left, short _top, string _value) : Control(_left, _top), value(_value), isSelected(FALSE)
+{
+}
 
-void CheckBox::draw(Graphics & GUI, int x, int y, size_t z)
+//Overloading of the father method
+void CheckBox::draw(Graphics &g, int x, int y, size_t z)
 {
 
-	GUI.moveTo(x, y);
-	GUI.setBackground(bgColor);
-	GUI.setForeground(fgColor);
+	g.moveTo(x, y);
+	g.setBackground(bgColor);
+	g.setForeground(fgColor);
 
-
-	cout << '\xDA' << '\xC4'<< '\xC4' << '\xBF';
-	for (int i = 0; i < value.size() + 1 ; i++) {
+	cout << '\xDA' << '\xC4' << '\xC4' << '\xBF';
+	for (int i = 0; i < value.size() + 1; i++)
+	{
 		cout << ' ';
 	}
 
-	GUI.moveTo(x, y + 1);
-	cout << '\xB3' << ' ' << ' ' << '\xB3' <<' ';
+	g.moveTo(x, y + 1);
+	cout << '\xB3' << ' ' << ' ' << '\xB3' << ' ';
 
-	GUI.moveTo(x, y + 2);
+	g.moveTo(x, y + 2);
 	cout << '\xC0' << '\xC4' << '\xC4' << '\xD9';
 
-	for (int i = 0; i < value.size() + 1; i++) {
+	for (int i = 0; i < value.size() + 1; i++)
+	{
 		cout << ' ';
 	}
 
 	if (isSelected)
 	{
-		GUI.write(x + 1, y + 1 , "X");
+		g.write(x + 1, y + 1, "X");
 	}
 
-	GUI.moveTo(x + 5, y + 1);
-	GUI.write(value);
+	g.moveTo(x + 5, y + 1);
+	g.write(value);
 }
 
 //reaction to mouse press
-void CheckBox::mousePressed(int x, int y, bool isLeft)
+void CheckBox::mousePressed(int posX, int posY, bool isLeft)
 {
+	if ((posY >= top) && (posY <= top + 1) && (posX >= left) && (posX <= (left + 1)))
+	{
+		isSelected = !isSelected;
+	}
 }
 
 //colors current item to white
