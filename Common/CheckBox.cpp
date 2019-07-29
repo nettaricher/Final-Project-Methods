@@ -55,13 +55,13 @@ void CheckBox::mousePressed(int posX, int posY, bool isLeft)
 void CheckBox::flipBgToWhite()
 {
 	bgColor = Color::White;
-	fgColor = Color::Black;
+	fgColor = Color::Cyan;
 }
 
 //colors current item to black
 void CheckBox::flipBgToBlack()
 {
-	bgColor = Color::Black;
+	bgColor = Color::Cyan;
 	fgColor = Color::White;
 }
 

@@ -9,7 +9,7 @@ public:
 
 	void mousePressed(int x, int y, bool isLeft);
 	void draw(Graphics& g, int x, int y, size_t z);
-	bool canGetFocus() { return TRUE; };
+	bool canGetFocus() { return FALSE; };
 	void setIsVisible(bool isVisible);
 	void setFocus(bool focus);
 	bool getIsVisible();

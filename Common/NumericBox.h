@@ -15,6 +15,6 @@ public:
     void keyDown(int keyCode, char charecter, Graphics &GUI);
     void onFocus(bool flag);
     int getWidth() { return width; };
-    bool canGetFocus() { return TRUE; };
+    bool canGetFocus() { return FALSE; };
     ~NumericBox();
 };

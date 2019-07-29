@@ -6,7 +6,7 @@ using namespace std;
 
 TextBox::TextBox() {}
 
-TextBox::TextBox(Border *border, short left, short top, int width, int height) : Control(left, top, border), width(width), height(height), cursor(0), isFocus(FALSE), value()
+TextBox::TextBox(Border *border, short left, short top, int width, int height) : Control(left, top, border), width(width), height(height), cursor(left + 1), isFocus(FALSE), value()
 {
 }
 
@@ -17,11 +17,16 @@ void TextBox::onFocus(bool flag)
 
 void TextBox::draw(Graphics &GUI, int x, int y, size_t z)
 {
+    	GUI.setBackground(Color::Cyan);
+	    GUI.setForeground(Color::White);
+
     if (isFocus)
     {
+        GUI.setBackground(bgColor);
+	    GUI.setForeground(fgColor);
         this->border->draw(GUI, x, y, this->width, this->height);
         GUI.write(x + 1, y + 1, value);
-        GUI.moveTo(cursor + (left + 1), top + 1);
+        GUI.moveTo(cursor , top + 1);
         GUI.setCursorVisibility(TRUE);
         GUI.write("_");
     }
@@ -41,22 +46,24 @@ void TextBox::keyDown(int keyCode, char charecter, Graphics &GUI)
     {
         if ((width - 2) > stringSize && (charecter >= 65 && charecter <= 90 || charecter >= 97 && charecter <= 122 || charecter >= 48 && charecter <= 57 || charecter == 32))
         {
-            if (cursor < stringSize)
+            if (cursor < stringSize + left )
             {
                 if (charecter == 32)
                 {
-                    value.replace(value.begin() + cursor, value.end() - (stringSize - cursor), 1, charecter);
+                    value.insert(cursor - left + 1, 1, charecter);
+                    cursor++;
+
                 }
                 else
                 {
-                    value.replace(value.begin() + cursor, value.end() - (stringSize - cursor), 1, charecter);
+                    value.insert(cursor - left , 1, charecter);
                     cursor++;
                 }
             }
             else
             {
                 value.push_back(charecter);
-                cursor = static_cast<int>(value.size());
+                cursor = left + value.size() + 1;
             }
         }
     }
@@ -65,37 +72,24 @@ void TextBox::keyDown(int keyCode, char charecter, Graphics &GUI)
         switch (keyCode)
         {
         case VK_DELETE:
-            if (cursor > 0)
-            {
-                value.erase(value.begin() + (cursor - 1));
-                --cursor;
-            }
-            break;
         case VK_BACK:
-            if (cursor > 0)
+            if ( cursor - left >1)
             {
-                value.erase(value.begin() + (cursor - 1));
-                --cursor;
+                value.erase( cursor - left - 2, 1);
+                if(cursor - left != 1)
+                    --cursor;
             }
+            break;
         case VK_LEFT:
-            if (cursor > 0)
-            {
-                --cursor;
-            }
-            break;
         case VK_NUMPAD4:
-            if (cursor > 0)
+            if (cursor - left  > 1)
             {
                 --cursor;
             }
-        case VK_RIGHT:
-            if (cursor < stringSize)
-            {
-                ++cursor;
-            }
             break;
+        case VK_RIGHT:
         case VK_NUMPAD6:
-            if (cursor < stringSize)
+            if (cursor -1 < left + stringSize)
             {
                 ++cursor;
             }
@@ -109,10 +103,11 @@ void TextBox::mousePressed(int posX, int posY, bool isLeft)
     int stringSize = static_cast<int>(value.size());
     if (isInsideBoundaries(posX, posY))
     {
-        if (posX > stringSize)
-            cursor = stringSize;
-        else
-            cursor = (posX - (left + 1));
+        if (posX >= left + stringSize ){
+            cursor = left + stringSize + 1;
+        }else{
+            cursor = posX + 1;
+        }
     }
 }
 

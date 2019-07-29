@@ -1,6 +1,8 @@
 # Final-Project-Methods
 ## Description
 Simple C++ application that implements pseudo graphic library, which allow to set I/O patterns in a  windows console environmen, using a set of controls.
+## Installation
+On windows terminal : mingw32-make
 ## Components
 #### Label
 ![alt text](https://github.com/nettaricher/Final-Project-Methods/blob/master/Images/label.PNG)<br /><br />

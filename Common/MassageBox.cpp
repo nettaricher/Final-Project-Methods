@@ -13,6 +13,7 @@ PopUp::PopUp(short left, short top, string text) :
 	cancelBtn(new NormalBorder(), left + BIG_PADDING, top + BTN_WIDTH, "CANCEL"),
 	isFocus(FALSE), isVisible(false)
 {
+	label.setBgColor(Color::Cyan);
 	panel.setFocus(panel);
 	cancelBtn.setEvent(this);
 	sendBtn.setEvent(this);

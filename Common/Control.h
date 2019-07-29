@@ -42,8 +42,8 @@ public:
 			 focusCtl->onFocus(FALSE);
 			 focusCtl = &control;
 			 control.onFocus(TRUE);
-			 return TRUE;
-		}
+			 return TRUE;	
+			 	}
 		focusCtl = &control;
 		control.onFocus(TRUE);	
 		return TRUE;

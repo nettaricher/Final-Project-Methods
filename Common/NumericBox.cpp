@@ -14,6 +14,8 @@ void NumericBox::onFocus(bool flag)
 
 void NumericBox::draw(Graphics &GUI, int x, int y, size_t z)
 {
+    GUI.setBackground(Color::Cyan);
+
     short topBorder = top;
     short leftBorder = left;
 

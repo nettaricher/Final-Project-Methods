@@ -39,8 +39,9 @@ void RadioList::mousePressed(int posX, int posY, bool isLeft)
 bool RadioList::getIsInLastChild()
 {
 	int size = radioBoxList.size();
+		currentRadioBox++;
 
-	if (++currentRadioBox == 0)
+	if (currentRadioBox == 0)
 	{
 		selectedRadioBox = currentRadioBox;
 		radioBoxList[currentRadioBox]->flipBgToWhite();
@@ -49,9 +50,7 @@ bool RadioList::getIsInLastChild()
 	else if (currentRadioBox == size - 1)
 	{
 		radioBoxList[currentRadioBox]->flipBgToWhite();
-		radioBoxList[currentRadioBox - 1]->flipBgToBlack();
-		currentRadioBox = size - 1;
-		selectedRadioBox = currentRadioBox;
+	radioBoxList[currentRadioBox - 1]->flipBgToBlack();
 		return FALSE;
 	}
 	else if (currentRadioBox == size)
@@ -86,19 +85,6 @@ void RadioList::keyDown(int keyCode, char charecter, Graphics &GUI)
 
 	switch (keyCode)
 	{
-	case VK_TAB:
-		if (++currentRadioBox == 0)
-		{
-			selectedRadioBox = currentRadioBox;
-			radioBoxList[currentRadioBox]->flipBgToWhite();
-		}
-		else
-		{
-			radioBoxList[currentRadioBox - 1]->flipBgToBlack();
-			radioBoxList[currentRadioBox]->flipBgToWhite();
-			selectedRadioBox = currentRadioBox;
-		}
-		break;
 	case VK_DOWN:
 	case VK_NUMPAD2:
 		if (++currentRadioBox == 0)

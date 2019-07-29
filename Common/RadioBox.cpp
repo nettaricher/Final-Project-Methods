@@ -35,12 +35,12 @@ void RadioBox::toggleSelected()
 void RadioBox::toWhite()
 {
 	bgColor = Color::White;
-	fgColor = Color::Black;
+	fgColor = Color::Cyan;
 }
 
 void RadioBox::toBlack()
 {
-	bgColor = Color::Black;
+	bgColor = Color::Cyan;
 	fgColor = Color::White;
 }
 
