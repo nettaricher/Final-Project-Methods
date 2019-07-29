@@ -1,5 +1,5 @@
 # Final-Project-Methods
-##Installation
+## Installation
 On Windows: mingw32-make
 ## Description
 Simple C++ application that implements pseudo graphic library, which allow to set I/O patterns in a  windows console environmen, using a set of controls.
