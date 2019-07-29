@@ -10,6 +10,10 @@ ComboBox::ComboBox(Border *border, int left, int top, vector<string> options) : 
 	title = options[0];
 }
 
+void ComboBox::resetSelection(){
+	currentOption = 0;
+}
+
 void ComboBox::mousePressed(int posX, int posY, bool isLeft)
 {
 	if ((posY == top) && (posX > left && posX < (left + width - 1)))

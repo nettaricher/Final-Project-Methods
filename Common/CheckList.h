@@ -13,6 +13,9 @@ private:
 
 public:
 	CheckList(Border *border, short _left, short _top, vector<string> _values);
+	string getValue();
+	bool setValue(int option, string val);
+	bool setValue (int option);
 	void draw(Graphics &g, int x, int y, size_t z);
 	void mousePressed(int x, int y, bool isLeft);
 	void keyDown(int keyCode, char charecter, Graphics &g);

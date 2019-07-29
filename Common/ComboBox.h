@@ -13,6 +13,7 @@ private:
 public:
 	ComboBox(Border *border, int left, int top, vector<string> listOptions);
 	void mousePressed(int l, int t, bool isLeft);
+	void resetSelection();
 	int getWidth() { return width; };
 	void draw(Graphics &GUI, int x, int y, size_t z);
 	void keyDown(int keyCode, char charecter, Graphics &g);

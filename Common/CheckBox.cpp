@@ -8,6 +8,13 @@ CheckBox::CheckBox(short _left, short _top, string _value) : Control(_left, _top
 {
 }
 
+string CheckBox::getValue(){
+	return value;
+}
+
+void CheckBox::setValue(string val){
+	value = val;
+}
 //Overloading of the father method
 void CheckBox::draw(Graphics &g, int x, int y, size_t z)
 {

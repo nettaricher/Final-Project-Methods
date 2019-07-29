@@ -11,6 +11,27 @@ CheckList::CheckList(Border *_border, short _left, short _top, vector<string> _v
 	}
 }
 
+string CheckList::getValue(){
+	return checkBoxList[currentCboxIndex]->getValue();
+}
+
+bool CheckList::setValue(int option, string val){
+	try{
+		checkBoxList[option]->setValue(val);
+		return true;
+	}catch(const std::exception& e){
+		return false;
+	}
+}
+
+bool CheckList::setValue(int option){
+	try{
+		selectedIndex = option;
+		return true;
+	}catch(const std::exception& e){
+		return false;
+	}
+}
 void CheckList::draw(Graphics &g, int x, int y, size_t z)
 {
 	g.setBackground(bgColor);

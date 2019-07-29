@@ -11,6 +11,8 @@ private:
 public:
 	CheckBox(short _left, short _top, string _value);
 	void draw(Graphics &g, int x, int y, size_t z);
+	string getValue();
+	void setValue(string val);
 	void mousePressed(int x, int y, bool isLeft);
 	void keyDown(int keyCode, char charecter){};
 	bool canGetFocus() { return TRUE; };

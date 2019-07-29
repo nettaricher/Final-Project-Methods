@@ -12,6 +12,9 @@ private:
 
 public:
 	RadioList(Border *border, short _left, short _top, vector<string> radioList);
+	bool setValue(int option);
+	bool setValue (int option, string val);
+	string getValue();
 	bool canGetFocus() { return TRUE; };
 	bool isListObj() { return TRUE; }
 	bool getIsInLastChild();

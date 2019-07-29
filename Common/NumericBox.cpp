@@ -7,6 +7,14 @@ NumericBox::NumericBox(Border *border, short left, short top) : Control(left, to
 {
 }
 
+void NumericBox::setValue(int val){
+    value = val;
+}
+
+int NumericBox::getValue(){
+    return value;
+}
+
 void NumericBox::onFocus(bool flag)
 {
     focus = flag;

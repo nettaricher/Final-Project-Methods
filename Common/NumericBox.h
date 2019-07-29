@@ -10,6 +10,8 @@ private:
 
 public:
     NumericBox(Border *border, short left, short top);
+    void setValue(int value);
+    int getValue();
     void draw(Graphics &GUI, int x, int y, size_t z);
     void mousePressed(int x, int y, bool isLeft);
     void keyDown(int keyCode, char charecter, Graphics &GUI);

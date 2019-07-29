@@ -7,6 +7,14 @@ RadioBox::RadioBox(short left, short top, string title) : Control(left, top), ti
 {
 }
 
+void RadioBox::setValue(string value){
+	title = value;
+}
+
+string RadioBox::getValue(){
+	return title;
+
+}
 bool RadioBox::mouseClicked(int posX, int posY, bool isLeft)
 {
 

@@ -9,6 +9,28 @@ RadioList::RadioList(Border *border, short left, short top, vector<string> radio
 	}
 }
 
+string RadioList::getValue(){
+	return radioBoxList[selectedRadioBox]->getValue();
+}
+
+bool RadioList::setValue(int option, string val){
+	try{
+		radioBoxList[selectedRadioBox]->setValue(val);
+		return true;
+	}catch(const std::exception& e){
+		return false;
+	}
+}
+
+bool RadioList::setValue(int option){
+	try{
+		selectedRadioBox = option;
+		return true;
+	}catch(const std::exception& e){
+		return false;
+	}
+}
+
 void RadioList::mousePressed(int posX, int posY, bool isLeft)
 {
 	int currentindex = 0;

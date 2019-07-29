@@ -13,6 +13,8 @@ public:
     TextBox();
     TextBox(Border *border, short left, short top, int width, int height);
     ~TextBox();
+    void setValue(string val);
+    string getValue();
     void draw(Graphics &GUI, int x, int y, size_t z);
     void mousePressed(int x, int y, bool isLeft);
     void keyDown(int keyCode, char charecter, Graphics &GUI);

@@ -10,6 +10,14 @@ TextBox::TextBox(Border *border, short left, short top, int width, int height) :
 {
 }
 
+void TextBox::setValue(string val){
+    value = val;
+}
+
+string TextBox::getValue(){
+    return value;
+}
+
 void TextBox::onFocus(bool flag)
 {
     isFocus = flag;
