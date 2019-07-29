@@ -36,8 +36,6 @@ int main(int argc, char **argv)
 	PopUp popup(62, 15, "Confirm order");
 
 	orderBtn.setEvent(&popup);
-	panel.add(&toppingChecklist);
-	panel.add(&paymentRadioList);
 	panel.add(&nameTextBox);
 	panel.add(&phoneTextBox);
 	panel.add(&numbox);
@@ -51,7 +49,8 @@ int main(int argc, char **argv)
 	panel.add(&numOfPizzaLabel);
 	panel.add(&drinksLabel);
 	panel.add(&popup);
-
+	panel.add(&toppingChecklist);
+	panel.add(&paymentRadioList);
 	Control *firstFocus;
 	if (firstFocus = panel.getFirstControl())
 	{
